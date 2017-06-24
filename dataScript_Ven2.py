@@ -8,7 +8,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 sched= BlockingScheduler()
 
-@sched.scheduled_job('interval', minutes=4)
+@sched.scheduled_job('interval', minutes=5)
 def main():
     # use creds to create a client to interact with the Google Drive API
     scope = ['https://spreadsheets.google.com/feeds']
