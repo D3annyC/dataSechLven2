@@ -35,7 +35,26 @@ def main():
     # add ven and time
     venInfo ='{"ven":"'+ven[0]+'","time":"'+time[0]+'",'
     jsonData +=venInfo
+    
+    #formate the time and date
+    data_list=[]
+    time_tmp=[]
+    afternoonTime =12
+    HTime_tmp =""
+    time =time[0].split(' ')
+    if time[1] == "下午":
+        time_tmp =time[2].split(':')
+        afternoonTime +=int(time_tmp[0])
+        time_tmp[0] =str(afternoonTime)
+        #print(time_tmp)
+        for hms in time_tmp:
+            HTime_tmp += hms + ":"
+        #print(HTime_tmp[0:-1])
+        time[2] =HTime_tmp[0:-1]
+    elif time[1] == "上午":
+        print(time)
     data_list.append(time[0])
+    data_list.append(time[2])
     
 
     rowCounter =2
