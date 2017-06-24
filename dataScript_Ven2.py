@@ -50,8 +50,8 @@ def main():
     #sheet.resize(1)
     sheet.append_row(data_list)
     # delete last ','
-    print(jsonData[0:-1] + '}]')
-    print(str(data_list)[1:-1])
+    #print(jsonData[0:-1] + '}]')
+    #print(str(data_list)[1:-1])
 
 if __name__ == "__main__":
     main()
