@@ -22,18 +22,12 @@ def main():
     result = requests.get("http://218.161.81.10/app/sub4.asp?T1=VAN02")
     result.encoding='utf-8'
     root = etree.fromstring(result.content, etree.HTMLParser())
-    data_list=[]
 
     #split string from caption
     venRowData = root.xpath("//section/table[@class='table1']/caption/text()")
     ven =venRowData[0]
     ven =ven.split('(')
     time =ven[1].split(')')
-
-    # add ven and time
-    #jsonData = "["
-    #venInfo ='{"ven":"'+ven[0]+'","time":"'+time[0]+'",'
-    #jsonData +=venInfo
     
     #formate the time and date
     data_list=[]
