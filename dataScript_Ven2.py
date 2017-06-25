@@ -71,8 +71,8 @@ def main():
     
     #reset sheet row to 1
     #sheet.resize(1)
-    # sheet.append_row(data_list)
-    print(data_list)
+    sheet.append_row(data_list)
+    #print(data_list)
 
 
 if __name__ == "__main__":
