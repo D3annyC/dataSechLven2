@@ -41,35 +41,39 @@ def main():
     afternoonTime =12
     HTime_tmp =""
     time =time[0].split(' ')
+
+    #change time formate to HH:MM:SS
     if time[1] == "下午":
         time_tmp =time[2].split(':')
         afternoonTime +=int(time_tmp[0])
         time_tmp[0] =str(afternoonTime)
         #print(time_tmp)
-        for hms in time_tmp:
-            HTime_tmp += hms + ":"
+    
+    #fix 12 and 00 issue
+    time_tmp =time[2].split(':')
+    if time_tmp[0] == '12':
+        time_tmp[0] = '00'
+    if time_tmp[0] == '00':
+        time_tmp[0] = '12'
+    
+    #put time together
+    for hms in time_tmp:
+        HTime_tmp += hms + ":"
         #print(HTime_tmp[0:-1])
-        time[2] =HTime_tmp[0:-1]
-    elif time[1] == "上午":
-        print(time)
+    time[2] =HTime_tmp[0:-1]
+      
     data_list.append(time[0])
     data_list.append(time[2])
     
-
-    rowCounter =2
     for row in root.xpath("//section/table[@class='table1']/tbody/tr[position()>1]"):
         column = row.xpath("./td/text()")
-        #tmp= '"%s":"%s",' % (column[0], column[1])
         data_list.append('%s' % (column[1]))
-        #sheet.update_cell(1, rowCounter,'%s' %(column[0]))
-        #sheet.update_cell(2, rowCounter,'%s' %(column[1]))
-        #rowCounter += 1
-        #jsonData += tmp
+    
+    #reset sheet row to 1
     #sheet.resize(1)
-    sheet.append_row(data_list)
-    # delete last ','
-    #print(jsonData[0:-1] + '}]')
-    #print(str(data_list)[1:-1])
+    # sheet.append_row(data_list)
+    print(data_list)
+
 
 if __name__ == "__main__":
     main()
