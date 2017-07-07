@@ -42,8 +42,9 @@ def main():
         afternoonTime +=int(time_tmp[0])
         time_tmp[0] =str(afternoonTime)
         #print(time_tmp)
-        if time_tmp[0] == '00':
+        if time_tmp[0] == '24':
             time_tmp[0] = '12'
+            #print(time_tmp[0])
     if time[1] == "上午":
         time_tmp =time[2].split(':')
         if time_tmp[0] == '12':
