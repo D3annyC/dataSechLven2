@@ -1,6 +1,6 @@
 APScheduler==3.3.0
 requests==2.12.4
-lxml==3.6.0
+lxml==4.6.5
 gspread==0.6.2
 oauth2client==4.1.1
 jsonschema==2.4.0
